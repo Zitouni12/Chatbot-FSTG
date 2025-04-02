@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot FSTG</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.min.js"></script> <!-- Ajout de Fuse.js -->
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .chat-container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 90vh;
+        }
+        .chat-header {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        #chatbox {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            background: #f8f9fa;
+        }
+        .message {
+            display: inline-block;
+            padding: 12px 15px;
+            border-radius: 20px;
+            margin: 10px 0;
+            max-width: 75%;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            font-size: 0.9rem;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .text-end .message {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            color: white;
+            margin-left: auto;
+            text-align: left;
+        }
+        .text-start .message {
+            background: #e9ecef;
+            color: #212529;
+            margin-right: auto;
+            text-align: left;
+        }
+        .input-group {
+            padding: 10px;
+            border-top: 1px solid #dee2e6;
+            background: white;
+        }
+        #userInput {
+            border: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        #userInput:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #00f2fe;
+        }
+        #sendBtn {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease-in-out;
+        }
+        #sendBtn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            Chatbot FSTG
+        </div>
+        <div id="chatbox"></div>
+        <div class="input-group">
+            <input type="text" id="userInput" class="form-control" placeholder="Tapez votre question...">
+            <button id="sendBtn" class="btn">Envoyer</button>
+        </div>
+    </div>
+    <script>
+        // Exemple d'intégration avec l'API Gemini
+        async function queryGemini(question) {
+            const response = await fetch('https://api.gemini.com/v1/query', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer AIzaSyB-tI5qAO-zEHDzAKH5VtuU7cpUmsr_yF0'
+                },
+                body: JSON.stringify({ question })
+            });
+        
+            const data = await response.json();
+            return data.answer || "Désolé, je n'ai pas compris votre question.";
+        }
+        
+        async function handleUserInput(userInput) {
+            // Envoyer la question de l'utilisateur à l'API Gemini pour analyse
+            let geminiResponse = await queryGemini(userInput);
+        
+            // Si Gemini répond par une salutation ou une phrase informelle, réagir en conséquence
+            if (userInput.toLowerCase() === "hi" || userInput.toLowerCase() === "bonjour") {
+                geminiResponse = "Bonjour, comment puis-je vous aider ?";
+            }
+        
+            // Si la réponse de Gemini est liée à la Faculté des Sciences et Techniques, rechercher dans votre data.json
+            if (geminiResponse.toLowerCase().includes("faculté") || geminiResponse.toLowerCase().includes("sciences")) {
+                geminiResponse = searchKnowledgeBase(userInput);
+            }
+        
+            // Afficher la réponse à l'utilisateur
+            appendMessage(geminiResponse, false);
+        }
+        
+        // Fonction de recherche améliorée avec Fuse.js
+        function searchKnowledgeBase(question) {
+            const normalizedQuestion = normalizeInput(question);
+            const fuse = new Fuse(data.faculte.entries, {
+    keys: ['keywords'],
+    threshold: 0.3 // Vous pouvez ajuster cette valeur pour une meilleure précision
+});
+
+const result = fuse.search(normalizedQuestion);
+console.log(result);
+
+        
+            if (result.length > 0) {
+                return result[0].item.answer;
+            }
+        
+            return "Désolé, je n'ai pas trouvé d'information correspondante à votre question.";
+        }
+        
+        // Fonction d'affichage des messages
+        function appendMessage(text, isUser) {
+            const alignment = isUser ? 'text-end' : 'text-start';
+            $('#chatbox').append(`
+                <div class="${alignment}">
+                    <div class="message">${text}</div>
+                </div>
+            `);
+            $('#chatbox').scrollTop($('#chatbox')[0].scrollHeight);
+        }
+        
+        // Gestion des clics sur le bouton d'envoi
+        $('#sendBtn').click(function () {
+            const userMessage = $('#userInput').val().trim();
+            if (!userMessage) return;
+        
+            appendMessage(userMessage, true);
+            $('#userInput').val('');
+        
+            handleUserInput(userMessage);
+        });
+        
+        // Permet d'envoyer en appuyant sur Entrée
+        $('#userInput').keypress(function (e) {
+            if (e.which === 13) {
+                $('#sendBtn').click();
+            }
+        });
+        </script>
+        

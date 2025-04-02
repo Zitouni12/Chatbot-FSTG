@@ -1,0 +1,82 @@
+{"faculte": {
+  "nom": "Faculté des Sciences et Techniques de Marrakech",
+  "acronyme": "FSTG",
+  "universite": "Université Cadi Ayyad",
+  "fondation": 1991,
+  "localisation": {
+    "ville": "Marrakech",
+    "pays": "Maroc",
+    "adresse": "Bd Abdelkrim Khattabi, Marrakech 40000, Maroc",
+    "coordonnees_geographiques": {
+      "latitude": 31.6295,
+      "longitude": -8.0169
+    }
+  },
+  "entries": [
+    {
+      "keywords": ["fstg", "faculté des sciences et techniques", "université", "marrakech"],
+      "answer": "La Faculté des Sciences et Techniques de Marrakech (FSTG) est affiliée à l'Université Cadi Ayyad et a été fondée en 1991."
+    },
+    {
+      "keywords": ["adresse", "localisation", "où se trouve", "coordonnées"],
+      "answer": "La FSTG est située à Bd Abdelkrim Khattabi, Marrakech 40000, Maroc. Coordonnées GPS : 31.6295, -8.0169."
+    },
+    {
+      "keywords": ["filières", "licence", "master", "doctorat", "formations", "ingénieur"],
+      "answer": "La FSTG propose plusieurs formations : Licences (Mathématiques, Informatique, Physique...), Masters (Informatique, Biotechnologie...), Doctorats (Sciences Fondamentales, IA...), et Cycles Ingénieurs (Génie Civil, Réseaux...)."
+    },
+    {
+      "keywords": ["licence", "bachelor", "bac+3"],
+      "answer": "Les licences disponibles sont : Mathématiques, Informatique, Physique, Chimie, Sciences de la Vie et de la Terre, Génie Civil, Génie Électrique, et Génie Informatique."
+    },
+    {
+      "keywords": ["master", "bac+5", "maîtrise"],
+      "answer": "Les masters proposés incluent : Mathématiques Appliquées, Informatique et Systèmes d'Information, Biotechnologie, Chimie Industrielle, et plus."
+    },
+    {
+      "keywords": ["doctorat", "phd", "recherche"],
+      "answer": "La FSTG propose plusieurs doctorats : Sciences Fondamentales, Informatique et IA, Physique Appliquée, Chimie et Matériaux, et plus."
+    },
+    {
+      "keywords": ["départements", "sections", "domaines", "spécialités"],
+      "answer": "Les départements de la FSTG sont : Mathématiques, Informatique, Physique, Chimie, SVT, Génie Civil, Génie Électrique, Génie Informatique et Techniques de Communication et Management."
+    },
+    {
+      "keywords": ["recherche", "laboratoires", "scientifique"],
+      "answer": "Les laboratoires de recherche incluent : Mathématiques Appliquées, IA, Physique Appliquée, Chimie Organique et Industrielle, Ingénierie des Systèmes et Réseaux, et plus."
+    },
+    {
+      "keywords": ["admission", "inscription", "conditions", "candidature"],
+      "answer": "Les conditions d'admission varient selon le programme. Pour une licence, un bac scientifique est requis. Pour un master, il faut une licence en sciences. Pour le doctorat, un master est nécessaire."
+    },
+    {
+      "keywords": ["contact", "email", "téléphone", "adresse", "site web"],
+      "answer": " Téléphone : +212 524 437 760\n📧 Email : FSTG@ucam.ac.ma\n🌍 Site web : [fstg-marrakech.ac.ma](http://www.fstg-marrakech.ac.ma/FST/)"
+    },
+    {
+      "keywords": ["facebook", "linkedin", "réseaux sociaux"],
+      "answer": "Facebook : [FSTMarrakech](https://www.facebook.com/FSTMarrakech)\n📌 LinkedIn : [FSTG Marrakech](https://www.linkedin.com/school/fstmarrakech/)"
+    },
+    {
+      "keywords": ["horaires", "ouverture", "heures", "disponibilité"],
+      "answer": "Heures d'ouverture :\n- Lundi à Vendredi : 8h00 - 18h00\n- Samedi : 9h00 - 13h00\n- Dimanche : Fermé."
+    },
+    {
+      "keywords": ["infrastructures", "bibliothèque", "laboratoires", "cafétéria"],
+      "answer": "La FSTG dispose d'une bibliothèque universitaire, de salles informatiques, de laboratoires spécialisés, d'une cafétéria et de salles de conférences modernes."
+    },
+    {
+      "keywords": ["programme d'échange", "erasmus", "partenariats internationaux"],
+      "answer": "La FSTG participe à plusieurs programmes d'échange comme Erasmus+ avec des universités en Europe, ainsi que des partenariats avec des institutions en Asie et en Afrique."
+    },
+    {
+      "keywords": ["dossiers", "documents", "pièces à fournir", "inscription"],
+      "answer": "Les documents requis pour l'inscription varient :\n📌 Licence : Relevé de notes, Bac, Lettre de motivation.\n📌 Master : Relevé Bac+3, CV, Lettre de motivation.\n📌 Doctorat : Diplôme de Master, Projet de recherche, CV."
+    },
+    {
+      "keywords": ["événements", "conférences", "séminaires"],
+      "answer": "La FSTG organise régulièrement des conférences, séminaires et ateliers académiques avec des experts et des chercheurs internationaux."
+    }
+  ]
+}
+}
